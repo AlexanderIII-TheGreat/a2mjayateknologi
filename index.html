@@ -1,0 +1,2024 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A2M Jaya Teknologi | Partner Strategis Pengembangan Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Particle Background -->
+    <div class="particles-bg" id="particles-bg"></div>
+
+    <!-- Overlay untuk mobile menu -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+
+    <!-- Modal Form -->
+    <div class="modal" id="order-modal">
+      <div class="modal-header">
+        <h3 class="modal-title lang-id active">Form Pemesanan</h3>
+        <h3 class="modal-title lang-en">Order Form</h3>
+        <button class="modal-close" id="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="order-form">
+          <div class="form-group">
+            <label class="form-label lang-id active">Nama Perusahaan</label>
+            <label class="form-label lang-en">Company Name</label>
+            <input type="text" class="form-input" id="company-name" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label lang-id active">Bergerak di Bidang</label>
+            <label class="form-label lang-en">Business Field</label>
+            <input
+              type="text"
+              class="form-input"
+              id="business-field"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label lang-id active">Deskripsi Singkat</label>
+            <label class="form-label lang-en">Brief Description</label>
+            <textarea
+              class="form-textarea"
+              id="description"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label lang-id active">Informasi Lain</label>
+            <label class="form-label lang-en">Other Information</label>
+            <input type="text" class="form-input" id="other" />
+          </div>
+
+          <input type="hidden" id="selected-service" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" form="order-form" class="cta-button modal-cta">
+          <span class="lang-id active">Kirim ke WhatsApp</span>
+          <span class="lang-en">Send to WhatsApp</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Header & Navigation untuk Desktop -->
+    <header id="header">
+      <div class="container">
+        <nav class="navbar">
+          <div class="logo-container">
+            <a href="#" class="logo-text">A2M Jaya<span>Teknologi</span></a>
+          </div>
+
+          <!-- Navbar untuk Desktop -->
+          <ul class="nav-links" id="nav-links">
+            <li>
+              <a href="#home" class="lang-id active">Beranda</a
+              ><a href="#home" class="lang-en">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="lang-id active">Tentang</a
+              ><a href="#about" class="lang-en">About</a>
+            </li>
+            <li>
+              <a href="#services" class="lang-id active">Layanan</a
+              ><a href="#services" class="lang-en">Services</a>
+            </li>
+            <li>
+              <a href="#process" class="lang-id active">Proses</a
+              ><a href="#process" class="lang-en">Process</a>
+            </li>
+            <li>
+              <a href="#portfolio" class="lang-id active">Portfolio</a
+              ><a href="#portfolio" class="lang-en">Portfolio</a>
+            </li>
+            <li>
+              <a href="#contact" class="lang-id active">Kontak</a
+              ><a href="#contact" class="lang-en">Contact</a>
+            </li>
+            <li class="theme-switcher">
+              <button id="theme-toggle" class="theme-btn">
+                <i class="fas fa-moon"></i>
+                <span class="lang-id active">Tema</span>
+                <span class="lang-en">Theme</span>
+              </button>
+            </li>
+            <li class="language-switcher">
+              <button id="language-toggle" class="language-btn">
+                <i class="fas fa-globe"></i>
+                <span class="lang-id active">ID</span>
+                <span class="lang-en">EN</span>
+              </button>
+            </li>
+          </ul>
+
+          <!-- Mobile Navigation Toggle -->
+          <button class="mobile-nav-toggle" id="mobile-nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Sidebar untuk Mobile (Tersembunyi) -->
+    <div class="mobile-sidebar" id="mobile-sidebar">
+      <!-- Logo mobile di sidebar -->
+      <a href="#" class="mobile-nav-logo">A2M Jaya<span>Teknologi</span></a>
+      <button class="mobile-nav-close" id="mobile-nav-close">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <ul>
+        <li>
+          <a href="#home" class="lang-id active"
+            ><i class="fas fa-home"></i> Beranda</a
+          ><a href="#home" class="lang-en"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="#about" class="lang-id active"
+            ><i class="fas fa-info-circle"></i> Tentang</a
+          ><a href="#about" class="lang-en"
+            ><i class="fas fa-info-circle"></i> About</a
+          >
+        </li>
+        <li>
+          <a href="#services" class="lang-id active"
+            ><i class="fas fa-cogs"></i> Layanan</a
+          ><a href="#services" class="lang-en"
+            ><i class="fas fa-cogs"></i> Services</a
+          >
+        </li>
+        <li>
+          <a href="#process" class="lang-id active"
+            ><i class="fas fa-sitemap"></i> Proses</a
+          ><a href="#process" class="lang-en"
+            ><i class="fas fa-sitemap"></i> Process</a
+          >
+        </li>
+        <li>
+          <a href="#portfolio" class="lang-id active"
+            ><i class="fas fa-briefcase"></i> Portfolio</a
+          ><a href="#portfolio" class="lang-en"
+            ><i class="fas fa-briefcase"></i> Portfolio</a
+          >
+        </li>
+        <li>
+          <a href="#contact" class="lang-id active"
+            ><i class="fas fa-envelope"></i> Kontak</a
+          ><a href="#contact" class="lang-en"
+            ><i class="fas fa-envelope"></i> Contact</a
+          >
+        </li>
+        <li class="theme-switcher">
+          <button id="theme-toggle-sidebar" class="theme-btn">
+            <i class="fas fa-moon"></i>
+            <span class="lang-id active">Tema</span>
+            <span class="lang-en">Theme</span>
+          </button>
+        </li>
+        <li class="language-switcher">
+          <button id="language-toggle-sidebar" class="language-btn">
+            <i class="fas fa-globe"></i>
+            <span class="lang-id active">ID</span>
+            <span class="lang-en">EN</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="section-subtitle lang-id active"
+            >Solusi Terbaik Untuk Pengembangan Perusahaan Anda</span
+          >
+          <span class="section-subtitle lang-en"
+            >The Best Solutions for Your Company's Development</span
+          >
+          <h1>
+            <span class="lang-id active"
+              >Mentransformasi Bisnis Dengan Pengembangan Web
+              <span class="highlight">Strategis</span></span
+            >
+            <span class="lang-en"
+              >Transforming Businesses With
+              <span class="highlight">Strategic</span> Web Development</span
+            >
+          </h1>
+          <p class="lang-id active">
+            Kami menciptakan solusi web premium dan scalable yang mendorong
+            pertumbuhan dan menetapkan kepemimpinan pasar. Sebagai mitra digital
+            strategis Anda, kami membangun lebih dari sekadar website—kami
+            menciptakan keunggulan kompetitif.
+          </p>
+          <p class="lang-en">
+            We craft premium, scalable web solutions that drive growth and
+            establish market leadership. As your strategic digital partner, we
+            build more than websites—we create competitive advantages.
+          </p>
+          <a href="#services" class="cta-button">
+            <span class="lang-id active"
+              >Jelajahi Layanan Kami <i class="fas fa-arrow-right"></i
+            ></span>
+            <span class="lang-en"
+              >Explore Our Services <i class="fas fa-arrow-right"></i
+            ></span>
+          </a>
+        </div>
+        <div class="hero-bg-elements">
+          <div class="floating-element floating-element-1"></div>
+          <div class="floating-element floating-element-2"></div>
+          <div class="floating-element floating-element-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section dengan animasi yang diperbaiki -->
+    <section id="about" class="about">
+      <div class="container">
+        <span class="section-subtitle lang-id active"
+          >Kenapa Memilih Kami?</span
+        >
+        <span class="section-subtitle lang-en">Why Choose Us?</span>
+
+        <div class="about-content">
+          <div class="about-text fade-in">
+            <h2 class="lang-id active">Kemitraan Digital Strategis</h2>
+            <h2 class="lang-en">Strategic Digital Partnership</h2>
+
+            <p class="lang-id active">
+              A2M Jaya Teknologi adalah agensi pengembangan web premium yang
+              mentransformasi cara bisnis beroperasi di lanskap digital. Kami
+              tidak hanya membangun website—kami mengarsiteki ekosistem digital
+              yang mendorong pertumbuhan terukur dan menetapkan kepemimpinan
+              pasar.
+            </p>
+            <p class="lang-en">
+              A2M Jaya Teknologi is a premier web development agency that
+              transforms how businesses operate in the digital landscape. We
+              don't just build websites—we architect digital ecosystems that
+              drive measurable growth and establish market leadership.
+            </p>
+          </div>
+
+          <div class="benefits-accordion">
+            <!-- Benefit Item 1 - DIUBAH: TIDAK ADA YANG AKTIF SECARA DEFAULT -->
+            <div class="benefit-item fade-in">
+              <button class="benefit-header">
+                <div class="benefit-header-content">
+                  <div class="benefit-icon">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div>
+                    <div class="benefit-title lang-id active">
+                      Pendekatan Berbasis Bisnis, Bukan Sekadar Website
+                    </div>
+                    <div class="benefit-title lang-en">
+                      Business-Driven Approach, Not Just a Website
+                    </div>
+                  </div>
+                </div>
+                <div class="benefit-toggle">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </button>
+              <div class="benefit-body">
+                <p class="benefit-description lang-id active">
+                  Kami membangun solusi digital yang selaras dengan tujuan
+                  bisnis Anda. Setiap website dirancang untuk mendukung
+                  pertumbuhan, efisiensi operasional, dan pengalaman pengguna
+                  yang memberikan dampak nyata pada profitabilitas.
+                </p>
+                <p class="benefit-description lang-en">
+                  We build digital solutions aligned with your business goals.
+                  Every website is designed to support growth, operational
+                  efficiency, and a user experience that delivers a real impact
+                  on profitability.
+                </p>
+              </div>
+            </div>
+
+            <!-- Benefit Item 2 -->
+            <div class="benefit-item fade-in">
+              <button class="benefit-header">
+                <div class="benefit-header-content">
+                  <div class="benefit-icon">
+                    <i class="fas fa-shield-halved"></i>
+                  </div>
+                  <div>
+                    <div class="benefit-title lang-id active">
+                      Teknologi Stabil, Aman, dan Siap Dikembangkan
+                    </div>
+                    <div class="benefit-title lang-en">
+                      Stable, Secure, and Scalable Technology
+                    </div>
+                  </div>
+                </div>
+                <div class="benefit-toggle">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </button>
+              <div class="benefit-body">
+                <p class="benefit-description lang-id active">
+                  Kami menggunakan fondasi teknologi yang teruji dan aman.
+                  Website Anda siap bertumbuh seiring perkembangan bisnis tanpa
+                  harus membangun ulang dari awal—memberikan ketenangan pikiran
+                  untuk jangka panjang.
+                </p>
+                <p class="benefit-description lang-en">
+                  We use tested and secure technological foundations. Your
+                  website is ready to grow alongside your business without
+                  needing to rebuild from scratch—providing long-term peace of
+                  mind.
+                </p>
+              </div>
+            </div>
+
+            <!-- Benefit Item 3 -->
+            <div class="benefit-item fade-in">
+              <button class="benefit-header">
+                <div class="benefit-header-content">
+                  <div class="benefit-icon">
+                    <i class="fas fa-comments"></i>
+                  </div>
+                  <div>
+                    <div class="benefit-title lang-id active">
+                      Komunikasi Jelas & Proses Terstruktur
+                    </div>
+                    <div class="benefit-title lang-en">
+                      Clear Communication & Structured Process
+                    </div>
+                  </div>
+                </div>
+                <div class="benefit-toggle">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </button>
+              <div class="benefit-body">
+                <p class="benefit-description lang-id active">
+                  Proyek sukses dimulai dari transparansi. Setiap tahap
+                  dikerjakan dengan alur yang jelas, update berkala, dan
+                  dokumentasi rapi tanpa istilah teknis yang membingungkan
+                  klien.
+                </p>
+                <p class="benefit-description lang-en">
+                  Successful projects start with transparency. Every stage is
+                  executed with a clear workflow, regular updates, and neat
+                  documentation without confusing technical jargon.
+                </p>
+              </div>
+            </div>
+
+            <!-- Benefit Item 4 -->
+            <div class="benefit-item fade-in">
+              <button class="benefit-header">
+                <div class="benefit-header-content">
+                  <div class="benefit-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <div>
+                    <div class="benefit-title lang-id active">
+                      Mitra Jangka Panjang, Bukan Sekadar Vendor
+                    </div>
+                    <div class="benefit-title lang-en">
+                      Long-term Partner, Not Just a Vendor
+                    </div>
+                  </div>
+                </div>
+                <div class="benefit-toggle">
+                  <i class="fas fa-plus"></i>
+                </div>
+              </button>
+              <div class="benefit-body">
+                <p class="benefit-description lang-id active">
+                  Kami tidak hanya menyelesaikan proyek, kami membangun
+                  kemitraan. A2M Jaya Teknologi hadir untuk mendampingi bisnis
+                  Anda berkembang di dunia digital secara berkelanjutan.
+                </p>
+                <p class="benefit-description lang-en">
+                  We don't just finish projects, we build partnerships. A2M Jaya
+                  Teknologi is here to accompany your business growth in the
+                  digital world sustainably.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section - PERBAIKAN KHUSUS -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="portfolio-header">
+          <span class="section-subtitle lang-id active">Kisah Sukses Kami</span>
+          <span class="section-subtitle lang-en">Our Success Stories</span>
+          <br />
+          <h2 class="lang-id active">Portfolio</h2>
+          <h2 class="lang-en">Portfolio</h2>
+          <br />
+          <p class="lang-id active">
+            Jelajahi pilihan proyek pengembangan web premium kami yang telah
+            memberikan hasil luar biasa bagi klien kami.
+          </p>
+          <p class="lang-en">
+            Explore our curated selection of premium web development projects
+            that have delivered exceptional results for our clients.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- ERP -->
+          <div class="portfolio-item fade-in">
+            <div class="portfolio-img">
+              <img src="asset/erp/erp.png" alt="ERP Platform" />
+            </div>
+            <div class="portfolio-info">
+              <h4 class="lang-id active">
+                Platform ERP (Enterprise Resource Planning)
+              </h4>
+              <h4 class="lang-en">
+                ERP Platform (Enterprise Resource Planning)
+              </h4>
+              <div class="portfolio-subtitle lang-id active">
+                Memperkenalkan kepada dunia mengenai siapa saya dan skill yang
+                saya miliki.
+              </div>
+              <div class="portfolio-subtitle lang-en">
+                Introducing myself and the skills I possess to the world.
+              </div>
+              <p class="portfolio-desc lang-id active">
+                Website ini adalah website yang digunakan untuk melakukan
+                management atau monitoring beberapa platform E-commerce dalam
+                satu platform berbasis website.
+              </p>
+              <p class="portfolio-desc lang-en">
+                This website is used to manage or monitor multiple e-commerce
+                platforms within one web-based platform.
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Laravel</span>
+                <span class="portfolio-tag">Tailwind CSS</span>
+                <span class="portfolio-tag">MySQL</span>
+                <span class="portfolio-tag">Vite</span>
+                <span class="portfolio-tag">Node.js</span>
+              </div>
+              <a href="#" class="portfolio-demo">
+                <span class="lang-id active"
+                  >Lihat Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+                <span class="lang-en"
+                  >View Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Travel Website -->
+<div class="portfolio-item fade-in">
+  <div class="portfolio-img">
+    <img src="asset/travel/travel.png" alt="Travel Website Platform" />
+  </div>
+  <div class="portfolio-info">
+    <h4 class="lang-id active">
+      Platform Website Travel & Tour
+    </h4>
+    <h4 class="lang-en">
+      Travel & Tour Website Platform
+    </h4>
+
+    <div class="portfolio-subtitle lang-id active">
+      Website digital untuk pemesanan paket wisata dan perjalanan.
+    </div>
+    <div class="portfolio-subtitle lang-en">
+      A digital platform for booking travel and tour packages.
+    </div>
+
+    <p class="portfolio-desc lang-id active">
+      Website ini dirancang untuk membantu pelanggan dalam mencari,
+      membandingkan, dan memesan paket perjalanan dengan mudah. 
+      Dilengkapi dengan sistem booking online, manajemen jadwal,
+      pembayaran terintegrasi, serta dashboard admin untuk 
+      monitoring transaksi dan pelanggan secara real-time.
+    </p>
+    <p class="portfolio-desc lang-en">
+      This website is designed to help customers search, compare,
+      and book travel packages easily. It includes an online booking
+      system, schedule management, integrated payments, and an admin
+      dashboard for real-time transaction and customer monitoring.
+    </p>
+
+    <div class="portfolio-tags">
+      <span class="portfolio-tag">Laravel</span>
+      <span class="portfolio-tag">Tailwind CSS</span>
+      <span class="portfolio-tag">JavaScript</span>
+      <span class="portfolio-tag">MySQL</span>
+      <span class="portfolio-tag">Payment Gateway</span>
+    </div>
+
+    <a href="#" class="portfolio-demo">
+      <span class="lang-id active">
+        Lihat Demo <i class="fas fa-external-link-alt"></i>
+      </span>
+      <span class="lang-en">
+        View Demo <i class="fas fa-external-link-alt"></i>
+      </span>
+    </a>
+  </div>
+</div>
+
+
+          <!-- POS -->
+          <div class="portfolio-item fade-in">
+            <div class="portfolio-img">
+              <img src="asset/pos/pos.png" alt="POS Platform" />
+            </div>
+            <div class="portfolio-info">
+              <h4 class="lang-id active">Platform POS (Point Of Sales)</h4>
+              <h4 class="lang-en">POS Platform (Point Of Sales)</h4>
+              <div class="portfolio-subtitle lang-id active">
+                Website Point Of Sales perusahaan A2M Jaya Teknologi.
+              </div>
+              <div class="portfolio-subtitle lang-en">
+                Point Of Sales website for A2M Jaya Teknologi company.
+              </div>
+              <p class="portfolio-desc lang-id active">
+                Website ini adalah website yang digunakan oleh perusahaan untuk
+                memanagement setiap proses bisnis dengan platform yang modern.
+              </p>
+              <p class="portfolio-desc lang-en">
+                This website is used by the company to manage every business
+                process with a modern platform.
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Laravel</span>
+                <span class="portfolio-tag">Tailwind CSS</span>
+                <span class="portfolio-tag">Node.js</span>
+                <span class="portfolio-tag">MySQL</span>
+              </div>
+              <a href="#" class="portfolio-demo">
+                <span class="lang-id active"
+                  >Lihat Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+                <span class="lang-en"
+                  >View Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- A2M Restaurant Website -->
+<div class="portfolio-item fade-in">
+  <div class="portfolio-img">
+    <img src="asset/restaurant/restaurant.png" alt="A2M Restaurant Website Platform" />
+  </div>
+
+  <div class="portfolio-info">
+    <h4 class="lang-id active">
+      A2M Restaurant – Website Restoran Modern
+    </h4>
+    <h4 class="lang-en">
+      A2M Restaurant – Modern Restaurant Website
+    </h4>
+
+    <div class="portfolio-subtitle lang-id active">
+      Website digital untuk branding dan sistem pemesanan restoran.
+    </div>
+    <div class="portfolio-subtitle lang-en">
+      Digital website for restaurant branding and ordering system.
+    </div>
+
+    <p class="portfolio-desc lang-id active">
+      A2M Restaurant adalah website restoran yang dirancang untuk
+      memperkuat branding digital dan mempermudah pelanggan dalam
+      melihat menu serta melakukan reservasi atau pemesanan online.
+      Website ini dilengkapi katalog menu interaktif, sistem reservasi,
+      integrasi pembayaran digital, serta dashboard admin untuk
+      mengelola menu dan laporan penjualan. Desain modern dan
+      responsif memastikan pengalaman pengguna tetap optimal
+      di berbagai perangkat.
+    </p>
+
+    <p class="portfolio-desc lang-en">
+      A2M Restaurant is a restaurant website built to strengthen
+      digital branding and simplify menu browsing, reservations,
+      and online ordering. It includes an interactive menu catalog,
+      reservation system, digital payment integration, and an admin
+      dashboard to manage menus and sales reports. The modern,
+      responsive design ensures a seamless experience across devices.
+    </p>
+
+    <div class="portfolio-tags">
+      <span class="portfolio-tag">Laravel</span>
+      <span class="portfolio-tag">Tailwind CSS</span>
+      <span class="portfolio-tag">JavaScript</span>
+      <span class="portfolio-tag">MySQL</span>
+      <span class="portfolio-tag">Responsive Design</span>
+    </div>
+
+    <a href="#" class="portfolio-demo">
+      <span class="lang-id active">
+        Lihat Demo <i class="fas fa-external-link-alt"></i>
+      </span>
+      <span class="lang-en">
+        View Demo <i class="fas fa-external-link-alt"></i>
+      </span>
+    </a>
+  </div>
+</div>
+
+          <!-- E-Commerce -->
+          <div class="portfolio-item fade-in">
+            <div class="portfolio-img">
+              <img
+                src="asset/ecommerce/ecommerce.png"
+                alt="E-Commerce Platform"
+              />
+            </div>
+            <div class="portfolio-info">
+              <h4 class="lang-id active">Platform Website E-Commerce</h4>
+              <h4 class="lang-en">E-Commerce Website Platform</h4>
+              <div class="portfolio-subtitle lang-id active">
+                Website E-Commerce untuk menjual produk perusahaan.
+              </div>
+              <div class="portfolio-subtitle lang-en">
+                E-Commerce website for selling company products.
+              </div>
+              <p class="portfolio-desc lang-id active">
+                Website ini memungkinkan perusahaan mempromosikan produk yang
+                mereka produksi untuk diperjualbelikan untuk publik.
+              </p>
+              <p class="portfolio-desc lang-en">
+                This website allows companies to promote the products they
+                produce for sale to the public.
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Vite</span>
+                <span class="portfolio-tag">Tailwind CSS</span>
+                <span class="portfolio-tag">JavaScript</span>
+                <span class="portfolio-tag">Laravel</span>
+                <span class="portfolio-tag">MySQL</span>
+              </div>
+              <a href="#" class="portfolio-demo">
+                <span class="lang-id active"
+                  >Lihat Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+                <span class="lang-en"
+                  >View Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Company Profile -->
+          <div class="portfolio-item fade-in">
+            <div class="portfolio-img">
+              <img
+                src="asset/company profile/image.png"
+                alt="Company Profile"
+              />
+            </div>
+            <div class="portfolio-info">
+              <h4 class="lang-id active">Platform Company Profile</h4>
+              <h4 class="lang-en">Company Profile Platform</h4>
+              <div class="portfolio-subtitle lang-id active">
+                Memperkenalkan pada dunia tentang perusahaan A2M Jaya Teknologi.
+              </div>
+              <div class="portfolio-subtitle lang-en">
+                Introducing the A2M Jaya Teknologi company to the world.
+              </div>
+              <p class="portfolio-desc lang-id active">
+                Adalah sebuah website yang memegang peran dalam mempromosikan
+                serta meningkatkan image perusahaan.
+              </p>
+              <p class="portfolio-desc lang-en">
+                This is a website that plays a role in promoting and improving
+                the company's image.
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Vite</span>
+                <span class="portfolio-tag">Tailwind CSS</span>
+                <span class="portfolio-tag">JavaScript</span>
+                <span class="portfolio-tag">Laravel</span>
+                <span class="portfolio-tag">MySQL</span>
+              </div>
+              <a href="#" class="portfolio-demo">
+                <span class="lang-id active"
+                  >Lihat Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+                <span class="lang-en"
+                  >View Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+
+<!-- A2M Coffee Website -->
+<div class="portfolio-item fade-in">
+  <div class="portfolio-img">
+    <img src="asset/coffeeshop/coffeeshop.png" alt="A2M Coffee Website Platform" />
+  </div>
+
+  <div class="portfolio-info">
+    <h4 class="lang-id active">
+      A2M Coffee – Website Coffee Shop Modern
+    </h4>
+    <h4 class="lang-en">
+      A2M Coffee – Modern Coffee Shop Website
+    </h4>
+
+    <div class="portfolio-subtitle lang-id active">
+      Website branding dan pemesanan online untuk coffee shop modern.
+    </div>
+    <div class="portfolio-subtitle lang-en">
+      Branding and online ordering website for a modern coffee shop.
+    </div>
+
+    <p class="portfolio-desc lang-id active">
+      A2M Coffee adalah website coffee shop yang dirancang untuk
+      meningkatkan branding digital dan mempermudah pelanggan dalam
+      melakukan pemesanan secara online. Website ini menampilkan
+      katalog menu interaktif, sistem pemesanan (pre-order),
+      integrasi pembayaran digital, serta dashboard admin untuk
+      mengelola produk, promo, dan laporan penjualan.
+      Desain dibuat modern, clean, dan mobile-friendly untuk
+      memberikan pengalaman pengguna yang optimal.
+    </p>
+
+    <p class="portfolio-desc lang-en">
+      A2M Coffee is a coffee shop website designed to enhance
+      digital branding and simplify online ordering. It features
+      an interactive menu catalog, pre-order system, digital payment
+      integration, and an admin dashboard to manage products,
+      promotions, and sales reports. The design is modern, clean,
+      and mobile-friendly to deliver an optimal user experience.
+    </p>
+
+    <div class="portfolio-tags">
+      <span class="portfolio-tag">Laravel</span>
+      <span class="portfolio-tag">Tailwind CSS</span>
+      <span class="portfolio-tag">JavaScript</span>
+      <span class="portfolio-tag">MySQL</span>
+      <span class="portfolio-tag">Responsive Design</span>
+      <span class="portfolio-tag">Payment Gateway</span>
+    </div>
+
+    <a href="#" class="portfolio-demo">
+      <span class="lang-id active">
+        Lihat Demo <i class="fas fa-external-link-alt"></i>
+      </span>
+      <span class="lang-en">
+        View Demo <i class="fas fa-external-link-alt"></i>
+      </span>
+    </a>
+  </div>
+</div>
+
+          <!-- Portfolio Item 4: Platform CCTV Management -->
+          <div class="portfolio-item fade-in">
+            <div class="portfolio-img">
+                <img
+                src="asset/cctv monitoring/cctv.png"
+                alt="CCTV"
+              /></div>
+            <div class="portfolio-info">
+              <h4 class="lang-id active">Platform CCTV Management System</h4>
+              <h4 class="lang-en">CCTV Management System Platform</h4>
+              <div class="portfolio-subtitle lang-id active">
+                Solusi terbaik untuk masalah akses CCTV yang terbatas.
+              </div>
+              <div class="portfolio-subtitle lang-en">
+                The best solution for limited CCTV access problems.
+              </div>
+              <p class="portfolio-desc lang-id active">
+                Platform ini memberikan solusi dari permasalahan yang sering
+                dialami dalam hal monitoring CCTV serta memberikan akses yang
+                mudah dan cepat.
+              </p>
+              <p class="portfolio-desc lang-en">
+                This platform provides a solution to problems often encountered
+                in CCTV monitoring and provides easy and fast access.
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Kotlin</span>
+                <span class="portfolio-tag">Golang</span>
+                <span class="portfolio-tag">PostgreSQL</span>
+                <span class="portfolio-tag">Redis</span>
+                <span class="portfolio-tag">WebRTC</span>
+              </div>
+              <a href="#" class="portfolio-demo">
+                <span class="lang-id active"
+                  >Lihat Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+                <span class="lang-en"
+                  >View Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- ERPAA -->
+          <div class="portfolio-item fade-in">
+            <div class="portfolio-img">
+              <img src="asset/erpaa/erpaa.png" alt="ERPAA Platform" />
+            </div>
+            <div class="portfolio-info">
+              <h4 class="lang-id active">
+                Platform ERPAA (Enterprise Resource Planning And Analyst)
+              </h4>
+              <h4 class="lang-en">
+                ERPAA Platform (Enterprise Resource Planning And Analyst)
+              </h4>
+              <div class="portfolio-subtitle lang-id active">
+                Platform ERP berbasis AI Analyst.
+              </div>
+              <div class="portfolio-subtitle lang-en">
+                ERP platform based on AI Analyst.
+              </div>
+              <p class="portfolio-desc lang-id active">
+                Sebuah aplikasi berbasis ERP dengan AI sebagai otaknya...
+              </p>
+              <p class="portfolio-desc lang-en">
+                An ERP-based application with AI as its brain...
+              </p>
+              <div class="portfolio-tags">
+                <span class="portfolio-tag">Vite</span>
+                <span class="portfolio-tag">Tailwind CSS</span>
+                <span class="portfolio-tag">JavaScript</span>
+                <span class="portfolio-tag">Golang</span>
+                <span class="portfolio-tag">Gemini AI</span>
+              </div>
+              <a href="#" class="portfolio-demo">
+                <span class="lang-id active"
+                  >Lihat Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+                <span class="lang-en"
+                  >View Demo <i class="fas fa-external-link-alt"></i
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+      <div class="container">
+        <div class="process-header">
+          <span class="section-subtitle lang-id active">Metodologi Kami</span>
+          <span class="section-subtitle lang-en">Our Methodology</span>
+          <h2 class="lang-id active">Proses Pengembangan Strategis</h2>
+          <h2 class="lang-en">Strategic Development Process</h2>
+          <p class="lang-id active">
+            Metodologi teruji kami memastikan setiap proyek memberikan nilai
+            maksimal dan selaras sempurna dengan tujuan bisnis Anda.
+          </p>
+          <p class="lang-en">
+            Our proven methodology ensures every project delivers maximum value
+            and aligns perfectly with your business objectives.
+          </p>
+        </div>
+
+        <div class="process-container">
+          <div class="process-line"></div>
+          <div class="process-steps">
+            <div class="step fade-in">
+              <div class="step-number">01</div>
+              <h4 class="lang-id active">Penemuan & Strategi</h4>
+              <h4 class="lang-en">Discovery & Strategy</h4>
+              <p class="lang-id active">
+                Mendalami tujuan bisnis, target audiens, dan lanskap kompetitif
+                untuk menentukan arah strategis.
+              </p>
+              <p class="lang-en">
+                Deep dive into your business objectives, target audience, and
+                competitive landscape to define the strategic direction.
+              </p>
+            </div>
+
+            <div class="step fade-in">
+              <div class="step-number">02</div>
+              <h4 class="lang-id active">Arsitektur & Desain</h4>
+              <h4 class="lang-en">Architecture & Design</h4>
+              <p class="lang-id active">
+                Menciptakan desain berpusat pada pengguna dengan fokus pada
+                konversi, keselarasan merek, dan pengalaman pengguna yang luar
+                biasa.
+              </p>
+              <p class="lang-en">
+                Create user-centric designs with a focus on conversion, brand
+                alignment, and exceptional user experience.
+              </p>
+            </div>
+
+            <div class="step fade-in">
+              <div class="step-number">03</div>
+              <h4 class="lang-id active">Pengembangan & Integrasi</h4>
+              <h4 class="lang-en">Development & Integration</h4>
+              <p class="lang-id active">
+                Membangun dengan teknologi mutakhir, memastikan skalabilitas,
+                kinerja, dan integrasi sistem yang mulus.
+              </p>
+              <p class="lang-en">
+                Build with cutting-edge technologies, ensuring scalability,
+                performance, and seamless system integrations.
+              </p>
+            </div>
+
+            <div class="step fade-in">
+              <div class="step-number">04</div>
+              <h4 class="lang-id active">Peluncuran & Optimasi</h4>
+              <h4 class="lang-en">Launch & Optimization</h4>
+              <p class="lang-id active">
+                Meluncurkan dengan presisi, kemudian terus memantau dan
+                mengoptimalkan untuk kinerja dan hasil bisnis yang optimal.
+              </p>
+              <p class="lang-en">
+                Deploy with precision, then continuously monitor and optimize
+                for peak performance and business results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="services-header">
+          <span class="section-subtitle lang-id active">Paket Layanan</span>
+          <span class="section-subtitle lang-en">Service Packages</span>
+          <h2 class="lang-id active">
+            Solusi Web Strategis & Rencana Pertumbuhan
+          </h2>
+          <h2 class="lang-en">Strategic Web Solutions & Growth Plans</h2>
+          <p class="lang-id active">
+            Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Semua paket
+            termasuk keahlian pengembangan premium dan dukungan berkelanjutan.
+          </p>
+          <p class="lang-en">
+            Select a plan that aligns with your business goals. All plans
+            include our premium development expertise and ongoing support.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Paket 1: Website Company Profile Statis -->
+          <di class="service-card fade-in">
+            <div class="service-title lang-id active">
+              Company Profile Statis
+            </div>
+            <div class="service-title lang-en">Static Company Profile</div>
+
+            <p class="service-description lang-id active">
+              Website sederhana untuk memperkenalkan perusahaan Anda dengan
+              desain profesional dan responsif.
+            </p>
+            <p class="service-description lang-en">
+              Simple website to introduce your company with professional and
+              responsive design.
+            </p>
+
+            <div class="service-price">
+              <div class="price-amount">Rp 1 JT</div>
+              <div class="price-note lang-id active">Harga sekali bayar</div>
+              <div class="price-note lang-en">One-time payment</div>
+            </div>
+
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Desain responsif & modern</span
+                ><span class="lang-en">Responsive & modern design</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Gratis Revisi 3X </span
+                ><span class="lang-en">Free Revision 3X</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">5 Halaman konten</span
+                ><span class="lang-en">5 Content pages</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Form kontak & Google Maps</span
+                ><span class="lang-en">Contact form & Google Maps</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Optimasi SEO dasar</span
+                ><span class="lang-en">Basic SEO optimization</span>
+              </li>
+              <li>
+                <i class="fas fa-times"></i>
+                <span class="lang-id active">Panel admin custom</span
+                ><span class="lang-en">Custom admin panel</span>
+              </li>
+              <li>
+                <i class="fas fa-times"></i>
+                <span class="lang-id active">Integrasi sistem eksternal</span
+                ><span class="lang-en">External system integration</span>
+              </li>
+            </ul>
+
+            <div class="service-cta">
+              <button
+                class="cta-button service-order-btn"
+                data-service="Company Profile Statis"
+                style="width: 100%; text-align: center"
+              >
+                <span class="lang-id active">Pesan Sekarang</span>
+                <span class="lang-en">Order Now</span>
+              </button>
+            </div>
+          </di
+
+          <!-- Paket 2: Website Company Profile Dinamis -->
+          <div class="service-card fade-in">
+            <div class="service-title lang-id active">
+              Company Profile Dinamis
+            </div>
+            <div class="service-title lang-en">Dynamic Company Profile</div>
+
+            <p class="service-description lang-id active">
+              Website dengan CMS untuk mengupdate konten secara mandiri,
+              dilengkapi fitur-fitur interaktif.
+            </p>
+            <p class="service-description lang-en">
+              Website with CMS for independent content updates, equipped with
+              interactive features.
+            </p>
+
+            <div class="service-price">
+              <div class="price-amount">Rp 2,5 JT</div>
+              <div class="price-note lang-id active">Harga paket lengkap</div>
+              <div class="price-note lang-en">Complete package price</div>
+            </div>
+
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Semua fitur paket Statis</span
+                ><span class="lang-en">All Static package features</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Gratis Revisi 3X </span
+                ><span class="lang-en">Free Revision 3X</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">CMS untuk update konten</span
+                ><span class="lang-en">CMS for content updates</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Blog / berita terintegrasi</span
+                ><span class="lang-en">Integrated blog/news</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Galeri produk/jasa</span
+                ><span class="lang-en">Product/service gallery</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Panel admin custom</span
+                ><span class="lang-en">Custom admin panel</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active"
+                  >Integrasi sistem Payment Gateway</span
+                ><span class="lang-en">Payment Gateway system integration</span>
+              </li>
+            </ul>
+
+            <div class="service-cta">
+              <button
+                class="cta-button service-order-btn"
+                data-service="Company Profile Dinamis"
+                style="width: 100%; text-align: center"
+              >
+                <span class="lang-id active">Pesan Sekarang</span>
+                <span class="lang-en">Order Now</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Paket 3: Website Custom (Most Popular) -->
+          <div class="service-card featured fade-in">
+            <div class="service-badge">
+              <span class="lang-id active">Paling Populer</span>
+              <span class="lang-en">Most Popular</span>
+            </div>
+            <div class="service-title lang-id active">Website Custom</div>
+            <div class="service-title lang-en">Custom Website</div>
+
+            <p class="service-description lang-id active">
+              Solusi web lengkap dengan fitur custom sesuai kebutuhan bisnis
+              Anda, rekomendasi untuk bisnis yang sedang berkembang.
+            </p>
+            <p class="service-description lang-en">
+              Complete web solution with custom features according to your
+              business needs, recommended for growing businesses.
+            </p>
+
+            <div class="service-price">
+              <div class="price-amount">Rp 5 JT</div>
+              <div class="price-note lang-id active">Mulai dari</div>
+              <div class="price-note lang-en">Starting from</div>
+            </div>
+
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Semua fitur paket Dinamis</span
+                ><span class="lang-en">All Dynamic package features</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Gratis Revisi 3X </span
+                ><span class="lang-en">Free Revision 3X</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Fitur custom sesuai kebutuhan</span
+                ><span class="lang-en">Custom features as needed</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Integrasi API pihak ketiga</span
+                ><span class="lang-en">Third-party API integration</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Optimasi performa tinggi</span
+                ><span class="lang-en">High-performance optimization</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Dukungan 6 bulan</span
+                ><span class="lang-en">6 months support</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Analytics & reporting</span
+                ><span class="lang-en">Analytics & reporting</span>
+              </li>
+            </ul>
+
+            <div class="service-cta">
+              <button
+                class="cta-button service-order-btn"
+                data-service="Website Custom"
+                style="
+                  width: 100%;
+                  text-align: center;
+                  background: var(--gradient-accent);
+                "
+              >
+                <span class="lang-id active">Pesan Sekarang</span>
+                <span class="lang-en">Order Now</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Paket 4: Sistem Enterprise -->
+          <div class="service-card fade-in">
+            <div class="service-title lang-id active">Sistem Enterprise</div>
+            <div class="service-title lang-en">Enterprise System</div>
+
+            <p class="service-description lang-id active">
+              Platform web skala besar dengan fungsionalitas kompleks untuk
+              mengotomatisasi operasi bisnis enterprise.
+            </p>
+            <p class="service-description lang-en">
+              Large-scale web platform with complex functionality to automate
+              enterprise business operations.
+            </p>
+
+            <div class="service-price">
+              <div class="price-amount">Rp 15 JT+</div>
+              <div class="price-note lang-id active">
+                Harga berdasarkan kompleksitas
+              </div>
+              <div class="price-note lang-en">Price based on complexity</div>
+            </div>
+
+            <ul class="service-features">
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Semua fitur paket Custom</span
+                ><span class="lang-en">All Custom package features</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Gratis Revisi Sampai Selesai</span
+                ><span class="lang-en">Free Revisions Until Completed</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Sistem multi-user dengan role</span
+                ><span class="lang-en">Multi-user system with roles</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Integrasi sistem internal</span
+                ><span class="lang-en">Internal system integration</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Laporan & dashboard analitik</span
+                ><span class="lang-en">Analytics reports & dashboard</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active">Keamanan tingkat enterprise</span
+                ><span class="lang-en">Enterprise-level security</span>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <span class="lang-id active"
+                  >Dukungan & maintenance 1 tahun</span
+                ><span class="lang-en">1 year support & maintenance</span>
+              </li>
+            </ul>
+
+            <div class="service-cta">
+              <button
+                class="cta-button service-consult-btn"
+                data-service="Sistem Enterprise"
+                style="width: 100%; text-align: center"
+              >
+                <span class="lang-id active">Konsultasi Gratis</span>
+                <span class="lang-en">Free Consultation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact" style="padding: 60px 0 30px">
+      <div class="container">
+        <div
+          class="footer-content"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+          "
+        >
+          <div class="footer-column" style="flex: 1; min-width: 250px">
+            <h4>A2M Jaya Teknologi</h4>
+            <p class="lang-id active">
+              Mitra pengembangan web strategis untuk bisnis yang mencari solusi
+              digital transformatif dan kepemimpinan pasar.
+            </p>
+            <p class="lang-en">
+              Strategic web development partner for businesses seeking
+              transformative digital solutions and market leadership.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <div
+            class="footer-column"
+            style="
+              flex: 1;
+              min-width: 250px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            "
+          >
+            <div style="width: fit-content">
+              <h4 class="lang-id active">Layanan</h4>
+              <h4 class="lang-en">Services</h4>
+
+              <ul style="list-style: none; padding: 0">
+                <li>
+                  <a href="#services"
+                    ><i class="fas fa-chevron-right"></i>
+                    <span class="lang-id active">Company Profile Statis</span>
+                    <span class="lang-en">Static Company Profile</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#services"
+                    ><i class="fas fa-chevron-right"></i>
+                    <span class="lang-id active">Company Profile Dinamis</span>
+                    <span class="lang-en">Dynamic Company Profile</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#services"
+                    ><i class="fas fa-chevron-right"></i>
+                    <span class="lang-id active">Website Custom</span>
+                    <span class="lang-en">Custom Website</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#services"
+                    ><i class="fas fa-chevron-right"></i>
+                    <span class="lang-id active">Sistem Enterprise</span>
+                    <span class="lang-en">Enterprise System</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#services"
+                    ><i class="fas fa-chevron-right"></i>
+                    <span class="lang-id active">Dukungan & Maintenance</span>
+                    <span class="lang-en">Support & Maintenance</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="footer-column"
+            style="
+              flex: 1;
+              min-width: 250px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+            "
+          >
+            <div style="width: fit-content">
+              <h4 class="lang-id active">Kontak</h4>
+              <h4 class="lang-en">Contact</h4>
+
+              <ul style="list-style: none; padding: 0">
+                <!-- <li><a href="#"><i class="fas fa-map-marker-alt"></i> 
+                                <span class="lang-id active">Jl. Teknologi No. 123, Jakarta</span>
+                                <span class="lang-en">Tech Street No. 123, Jakarta</span>
+                            </a></li> -->
+                <li>
+                  <a href="tel:+6281234567890"
+                    ><i class="fas fa-phone"></i> +62 857 1200 6320</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:contact@a2mjayatekno.com"
+                    ><i class="fas fa-envelope"></i> contact@a2mjayatekno.com</a
+                  >
+                </li>
+                <!-- <li><a><i class="fas fa-clock"></i> 
+                                <span class="lang-id active">Senin-Jumat: 9AM-6PM</span>
+                                <span class="lang-en">Mon-Fri: 9AM-6PM</span>
+                            </a></li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="footer-bottom"
+          style="
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+          "
+        >
+          <p style="font-size: 14px; opacity: 0.7">
+            &copy; 2024 A2M Jaya Teknologi. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Language Toggle Functionality
+      const languageToggle = document.getElementById("language-toggle");
+      const languageToggleSidebar = document.getElementById(
+        "language-toggle-sidebar",
+      );
+      let currentLanguage = "id"; // Default language is Indonesian
+
+      function toggleLanguage() {
+        // Toggle language
+        if (currentLanguage === "id") {
+          currentLanguage = "en";
+        } else {
+          currentLanguage = "id";
+        }
+
+        // Update button text
+        const idSpans = document.querySelectorAll(".lang-id");
+        const enSpans = document.querySelectorAll(".lang-en");
+
+        if (currentLanguage === "id") {
+          idSpans.forEach((span) => span.classList.add("active"));
+          enSpans.forEach((span) => span.classList.remove("active"));
+          if (languageToggle)
+            languageToggle.querySelector(".lang-id").textContent = "ID";
+          if (languageToggle)
+            languageToggle.querySelector(".lang-en").textContent = "";
+          if (languageToggleSidebar)
+            languageToggleSidebar.querySelector(".lang-id").textContent = "ID";
+          if (languageToggleSidebar)
+            languageToggleSidebar.querySelector(".lang-en").textContent = "";
+        } else {
+          idSpans.forEach((span) => span.classList.remove("active"));
+          enSpans.forEach((span) => span.classList.add("active"));
+          if (languageToggle)
+            languageToggle.querySelector(".lang-id").textContent = "";
+          if (languageToggle)
+            languageToggle.querySelector(".lang-en").textContent = "EN";
+          if (languageToggleSidebar)
+            languageToggleSidebar.querySelector(".lang-id").textContent = "";
+          if (languageToggleSidebar)
+            languageToggleSidebar.querySelector(".lang-en").textContent = "EN";
+        }
+      }
+
+      if (languageToggle) {
+        languageToggle.addEventListener("click", toggleLanguage);
+      }
+
+      if (languageToggleSidebar) {
+        languageToggleSidebar.addEventListener("click", toggleLanguage);
+      }
+
+      // Theme Toggle Functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeToggleSidebar = document.getElementById(
+        "theme-toggle-sidebar",
+      );
+      let isDarkTheme = true; // Default theme is dark
+
+      // Check for saved theme preference or default to dark
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light-theme");
+        isDarkTheme = false;
+        updateThemeIcon();
+      }
+
+      function toggleTheme() {
+        // Toggle theme
+        isDarkTheme = !isDarkTheme;
+
+        if (isDarkTheme) {
+          document.body.classList.remove("light-theme");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.classList.add("light-theme");
+          localStorage.setItem("theme", "light");
+        }
+
+        updateThemeIcon();
+        // Update particles color when theme changes
+        updateParticlesColor();
+      }
+
+      function updateThemeIcon() {
+        const themeIcon = themeToggle ? themeToggle.querySelector("i") : null;
+        const themeIconSidebar = themeToggleSidebar
+          ? themeToggleSidebar.querySelector("i")
+          : null;
+
+        if (isDarkTheme) {
+          if (themeIcon) {
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+          }
+          if (themeIconSidebar) {
+            themeIconSidebar.classList.remove("fa-sun");
+            themeIconSidebar.classList.add("fa-moon");
+          }
+        } else {
+          if (themeIcon) {
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+          }
+          if (themeIconSidebar) {
+            themeIconSidebar.classList.remove("fa-moon");
+            themeIconSidebar.classList.add("fa-sun");
+          }
+        }
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener("click", toggleTheme);
+      }
+
+      if (themeToggleSidebar) {
+        themeToggleSidebar.addEventListener("click", toggleTheme);
+      }
+
+      // Mobile Navigation Toggle - DUA MODE: NAVBAR DESKTOP & SIDEBAR MOBILE
+      const mobileNavToggle = document.getElementById("mobile-nav-toggle");
+      const mobileNavClose = document.getElementById("mobile-nav-close");
+      const mobileSidebar = document.getElementById("mobile-sidebar");
+      const navOverlay = document.getElementById("nav-overlay");
+
+      function openMobileMenu() {
+        mobileSidebar.classList.add("active");
+        navOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMobileMenu() {
+        mobileSidebar.classList.remove("active");
+        navOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      if (mobileNavToggle) {
+        mobileNavToggle.addEventListener("click", openMobileMenu);
+      }
+
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener("click", closeMobileMenu);
+      }
+
+      // Close mobile menu when clicking overlay
+      if (navOverlay) {
+        navOverlay.addEventListener("click", closeMobileMenu);
+      }
+
+      // Close mobile menu when clicking a link in sidebar
+      document.querySelectorAll(".mobile-sidebar a").forEach((link) => {
+        if (
+          link.classList.contains("theme-btn") ||
+          link.classList.contains("language-btn")
+        ) {
+          return; // Skip theme and language buttons
+        }
+        link.addEventListener("click", closeMobileMenu);
+      });
+
+      // Benefit Accordion Functionality - SEMUA CARD TERTUTUP SECARA DEFAULT
+      const benefitHeaders = document.querySelectorAll(".benefit-header");
+
+      benefitHeaders.forEach((header) => {
+        header.addEventListener("click", function () {
+          const benefitItem = this.parentElement;
+          const isActive = benefitItem.classList.contains("active");
+
+          // Close all other benefit items
+          document.querySelectorAll(".benefit-item").forEach((item) => {
+            if (item !== benefitItem) {
+              item.classList.remove("active");
+            }
+          });
+
+          // Toggle current benefit item
+          if (!isActive) {
+            benefitItem.classList.add("active");
+          } else {
+            benefitItem.classList.remove("active");
+          }
+        });
+      });
+
+      // Particle Background Functionality
+      function createParticlesBackground(containerId, count) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // Clear existing particles
+        container.innerHTML = "";
+
+        // Get container dimensions
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        // Create particles
+        for (let i = 0; i < count; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // Random properties
+          const size = Math.random() * 3 + 1;
+          const posX = Math.random() * width;
+          const posY = Math.random() * height;
+          const duration = Math.random() * 10 + 5;
+          const delay = Math.random() * 5;
+          const opacity = Math.random() * 0.7 + 0.3;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}px`;
+          particle.style.top = `${posY}px`;
+          particle.style.opacity = opacity;
+          particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      // Function to update particles color based on theme
+      function updateParticlesColor() {
+        const particles = document.querySelectorAll(".particle");
+        particles.forEach((particle) => {
+          if (isDarkTheme) {
+            particle.style.background = "rgba(0, 212, 255, 0.6)";
+          } else {
+            particle.style.background = "rgba(8, 145, 178, 0.4)";
+          }
+        });
+      }
+
+      // Create particle background
+      createParticlesBackground("particles-bg", 100);
+
+      // Recreate particles on window resize
+      let resizeTimeout;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function () {
+          createParticlesBackground("particles-bg", 100);
+        }, 250);
+      });
+
+      // Fade-in animation on scroll
+      const fadeElements = document.querySelectorAll(".fade-in");
+      const benefitItems = document.querySelectorAll(".benefit-item");
+
+      const fadeInOnScroll = function () {
+        // Handle regular fade-in elements
+        fadeElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementTop < windowHeight - 100) {
+            element.classList.add("visible");
+          }
+        });
+
+        // Handle benefit items with staggered animation
+        benefitItems.forEach((item, index) => {
+          const itemTop = item.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (itemTop < windowHeight - 100) {
+            // Stagger the animation for each benefit item
+            setTimeout(() => {
+              item.classList.add("visible");
+            }, index * 150); // 150ms delay between each item
+          }
+        });
+      };
+
+      // Initial check
+      fadeInOnScroll();
+
+      // Check on scroll
+      window.addEventListener("scroll", fadeInOnScroll);
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize all elements as not visible
+      fadeElements.forEach((element) => {
+        element.classList.remove("visible");
+      });
+
+      benefitItems.forEach((item) => {
+        item.classList.remove("visible");
+      });
+
+      // Trigger initial fade-in after page load
+      setTimeout(() => {
+        fadeInOnScroll();
+      }, 300);
+
+      // Add hover effect to service cards
+      const serviceCards = document.querySelectorAll(".service-card");
+      serviceCards.forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          if (this.classList.contains("featured")) {
+            this.style.transform = "translateY(-20px) scale(1.07)";
+          } else {
+            this.style.transform = "translateY(-20px) scale(1.02)";
+          }
+        });
+
+        card.addEventListener("mouseleave", function () {
+          if (this.classList.contains("featured")) {
+            this.style.transform = "scale(1.05)";
+          } else {
+            this.style.transform = "translateY(0) scale(1)";
+          }
+        });
+      });
+
+      // Add hover effect to portfolio items
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+      portfolioItems.forEach((item) => {
+        item.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-15px) scale(1.02)";
+        });
+
+        item.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0) scale(1)";
+        });
+      });
+
+      // Add pulse animation to step numbers
+      const stepNumbers = document.querySelectorAll(".step-number");
+      stepNumbers.forEach((step) => {
+        step.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.1)";
+        });
+
+        step.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+
+      // Fix for mobile scroll behavior
+      document.addEventListener(
+        "touchmove",
+        function (e) {
+          // Allow scrolling on service cards
+          if (e.target.closest(".services-grid")) {
+            e.stopPropagation();
+          }
+        },
+        { passive: true },
+      );
+
+      // Close mobile menu when window is resized to desktop size
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          closeMobileMenu();
+        }
+      });
+
+      // Initialize theme icon on page load
+      updateThemeIcon();
+
+      // Mencegah geser horizontal pada sidebar mobile
+      document.addEventListener(
+        "touchstart",
+        function (e) {
+          if (mobileSidebar.classList.contains("active")) {
+            // Jika sidebar aktif, batasi scroll horizontal
+            if (e.target.closest(".mobile-sidebar")) {
+              e.stopPropagation();
+            }
+          }
+        },
+        { passive: true },
+      );
+
+      // ===========================================
+      // MODAL FUNCTIONALITY
+      // ===========================================
+
+      const modalOverlay = document.getElementById("modal-overlay");
+      const orderModal = document.getElementById("order-modal");
+      const modalClose = document.getElementById("modal-close");
+      const orderForm = document.getElementById("order-form");
+      let selectedService = "";
+
+      // Fungsi untuk membuka modal
+      function openModal(serviceName) {
+        selectedService = serviceName;
+        document.getElementById("selected-service").value = serviceName;
+        modalOverlay.classList.add("active");
+        orderModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      // Fungsi untuk menutup modal
+      function closeModal() {
+        modalOverlay.classList.remove("active");
+        orderModal.classList.remove("active");
+        document.body.style.overflow = "";
+        // Reset form
+        orderForm.reset();
+      }
+
+      // Event listener untuk tombol "Pesan Sekarang"
+      document.querySelectorAll(".service-order-btn").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Ambil nama layanan dari atribut data-service
+          const serviceName = this.getAttribute("data-service");
+
+          // Buka modal
+          openModal(serviceName);
+        });
+      });
+
+      // Event listener untuk tombol "Konsultasi Gratis" (langsung ke WhatsApp)
+      document.querySelectorAll(".service-consult-btn").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Ambil nama layanan dari atribut data-service
+          const serviceName = this.getAttribute("data-service");
+
+          // Langsung ke WhatsApp tanpa modal
+          redirectToWhatsApp(serviceName, true);
+        });
+      });
+
+      // Event listener untuk tombol close modal
+      if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+      }
+
+      // Event listener untuk overlay modal
+      if (modalOverlay) {
+        modalOverlay.addEventListener("click", closeModal);
+      }
+
+      // Mencegah modal tertutup saat mengklik di dalam modal
+      orderModal.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+
+      // ===========================================
+      // FORM SUBMISSION FUNCTIONALITY
+      // ===========================================
+
+      orderForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Ambil data dari form
+        const companyName = document.getElementById("company-name").value;
+        const businessField = document.getElementById("business-field").value;
+        const description = document.getElementById("description").value;
+        const other = document.getElementById("other").value;
+
+        // Validasi form
+        if (!companyName || !businessField || !description) {
+          alert(
+            currentLanguage === "id"
+              ? "Harap isi semua field!"
+              : "Please fill all fields!",
+          );
+          return;
+        }
+
+        // Kirim ke WhatsApp
+        sendToWhatsApp(
+          companyName,
+          businessField,
+          description,
+          other,
+          selectedService,
+        );
+
+        // Tutup modal
+        closeModal();
+      });
+
+      // ===========================================
+      // WHATSAPP FUNCTIONALITY
+      // ===========================================
+
+      // Fungsi untuk mengirim ke WhatsApp (langsung tanpa modal)
+      function redirectToWhatsApp(serviceName, isConsultation = false) {
+        // Format nomor WhatsApp (tanpa +, 0 diganti 62)
+        const phoneNumber = "6287814925892";
+
+        // Buat pesan berdasarkan bahasa yang aktif
+        let message = "";
+        if (currentLanguage === "id") {
+          if (isConsultation) {
+            message = `Halo, saya ingin konsultasi mengenai layanan *${serviceName}* dari A2M Jaya Teknologi. Bisa dibantu?`;
+          } else {
+            message = `Halo, saya tertarik memesan layanan *${serviceName}* dari A2M Jaya Teknologi. Bisa dibantu?`;
+          }
+        } else {
+          if (isConsultation) {
+            message = `Hello, I would like to consult about the *${serviceName}* service from A2M Jaya Teknologi. Can you help me?`;
+          } else {
+            message = `Hello, I'm interested in ordering the *${serviceName}* service from A2M Jaya Teknologi. Can you help me?`;
+          }
+        }
+
+        // Encode pesan untuk URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Buat URL WhatsApp
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        // Buka WhatsApp di tab baru
+        window.open(whatsappUrl, "_blank");
+      }
+
+      // Fungsi untuk mengirim data form ke WhatsApp
+      function sendToWhatsApp(
+        companyName,
+        businessField,
+        description,
+        other,
+        serviceName,
+      ) {
+        // Format nomor WhatsApp
+        const phoneNumber = "6287814925892";
+
+        // Buat pesan berdasarkan bahasa yang aktif
+        let message = "";
+        if (currentLanguage === "id") {
+          message = `*FORM PEMESANAN LAYANAN A2M JAYA TEKNOLOGI*
+
+*Nama Perusahaan:* ${companyName}
+*Bergerak di Bidang:* ${businessField}
+*Layanan yang Dipilih:* ${serviceName}
+
+*Deskripsi Singkat:*
+${description}
+
+*Informasi Lain:*
+${other}
+
+Saya tertarik memesan layanan ini. Mohon info lebih lanjut.`;
+        } else {
+          message = `*A2M JAYA TEKNOLOGI SERVICE ORDER FORM*
+
+*Company Name:* ${companyName}
+*Business Field:* ${businessField}
+*Selected Service:* ${serviceName}
+
+*Brief Description:*
+${description}
+
+*Other Information:*
+${other}
+
+I am interested in ordering this service. Please provide more information.`;
+        }
+
+        // Encode pesan untuk URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Buat URL WhatsApp
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        // Buka WhatsApp di tab baru
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+  </body>
+</html>

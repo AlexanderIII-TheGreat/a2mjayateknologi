@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYCUMATOR · Pramines Fobld</title>
+  <!-- Tailwind CDN + subtle animation library -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* custom color palette — exactly from the image: deep teal/blue, warm gray, coral accent, off-white */
+    :root {
+      --sy-deep: #0f2e3f;    /* pramines deep navy/teal */
+      --sy-soft: #eae6df;    /* tagline background / soft stone */
+      --sy-coral: #e46a5e;   /* featured innovation / hover accents */
+      --sy-warm-gray: #a6a6a6; /* category subtile */
+      --sy-card-bg: #ffffff;
+      --sy-dark-text: #1e2b32;
+    }
+    body {
+      background-color: #f6f4f0;  /* overall warm off-white like image paper */
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .bg-deep {
+      background-color: var(--sy-deep);
+    }
+    .text-deep {
+      color: var(--sy-deep);
+    }
+    .bg-soft {
+      background-color: var(--sy-soft);
+    }
+    .text-coral {
+      color: var(--sy-coral);
+    }
+    .border-coral {
+      border-color: var(--sy-coral);
+    }
+    .hover-scale {
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+    }
+    .product-card {
+      transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+      background: white;
+      border-radius: 20px;
+      border: 1px solid #f0ebe6;
+    }
+    .tagline-stroke {
+      letter-spacing: 0.3em;
+      font-weight: 400;
+    }
+    /* modal overlay animation */
+    .modal-fade {
+      animation: fadeSlide 0.2s ease-out;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: scale(0.96) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    /* custom blobs and decorative like the image has glitchy text */
+    .glitch-hint {
+      font-style: italic;
+      color: #b0a8a0;
+    }
+    .category-tag {
+      background-color: rgba(228,106,94,0.06);
+      border-radius: 30px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sy-coral);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- main container – matches image layout: tagline, huge title, featured section, categories grid -->
+  <div class="max-w-7xl mx-auto px-6 py-8 lg:px-10">
+
+    <!-- HEADER / TAGLINE – exactly like "TAGLINE SYCUMATOR / Pramines Fobld Technology Starts Here" -->
+    <div class="border-b border-[#ddd6cc] pb-6 mb-4 flex flex-col md:flex-row md:items-end justify-between">
+      <div>
+        <span class="text-xs uppercase tracking-[0.5em] text-[#7a6a5c] font-semibold">TAGLINE SYCUMATOR</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-deep mt-2 leading-tight tracking-tight" style="color: #0f2e3f;">
+          Pramines Fobld<br>Technology Starts Here
+        </h1>
+      </div>
+      <div class="mt-4 md:mt-0 text-right">
+        <div class="text-sm font-mono text-[#5f6c74] bg-soft px-5 py-2 rounded-full inline-block italic">
+          Taxitpol enerynd. fo tatiny hcit
+        </div>
+      </div>
+    </div>
+    
+    <!-- "Splore Lëmme" — central quirky command exactly as in image -->
+    <div class="my-6 flex items-center gap-3">
+      <span class="bg-[#1e3a4d] text-white px-6 py-2 rounded-full text-lg font-medium shadow-sm inline-flex items-center"><i class="fas fa-compass mr-2 text-coral"></i> Splore Lëmme</span>
+      <span class="h-px w-12 bg-[#cbc3b9]"></span>
+      <span class="text-[#a08f84] text-sm italic">v.0.33</span>
+    </div>
+
+    <!-- ========== FEATURED INNOVATION – 33 Featured Innovation ========== -->
+    <div class="mt-10 mb-14">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-2xl md:text-3xl font-bold text-deep flex items-center gap-2">
+          <span class="text-coral text-4xl">33</span> Featured Innovation
+        </h2>
+        <span class="text-sm uppercase tracking-wider text-[#a08f84]">Pe your tatalor your lifestyle.</span>
+      </div>
+
+      <!-- featured product row – five category teasers exactly like image -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-5 mt-8">
+        <!-- 1. XII xka Name / Togliire 4 bm -->
+        <div class="product-card hover-scale p-4 flex flex-col items-start relative bg-white border border-[#efebe7]">
+          <span class="category-tag text-xs mb-2"><i class="far fa-star mr-1"></i> Category</span>
+          <h3 class="font-bold text-deep text-sm uppercase tracking-wide">XII xka Name</h3>
+          <p class="text-xs text-[#6d7a80] mb-3">Togliire 4 bm</p>
+          <!-- product mini image + button trigger -->
+          <div class="w-full h-24 bg-[#f1efe9] rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+            <img src="https://picsum.photos/id/20/160/120?grayscale" alt="Togliire prototype" class="object-cover w-full h-full hover:scale-110 transition duration-300">
+          </div>
+          <button onclick="openModal('modal1')" class="mt-1 text-xs bg-deep text-white px-3 py-1.5 rounded-full inline-flex items-center gap-1 transition hover:bg-[#1c4457]"><i class="fas fa-eye"></i> Overview</button>
+        </div>
+        <!-- 2. Molmer / Notturistary -->
+        <div class="product-card hover-scale p-4 flex flex-col items-start bg-white border border-[#efebe7]">
+          <span class="category-tag text-xs mb-2"><i class="far fa-folder mr-1"></i> Category</span>
+          <h3 class="font-bold text-deep text-sm uppercase">Molmer</h3>
+          <p class="text-xs text-[#6d7a80] mb-3">Notturistary</p>
+          <div class="w-full h-24 bg-[#f1efe9] rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+            <img src="https://picsum.photos/id/36/160/120" alt="Molmer device" class="object-cover w-full h-full hover:scale-110 transition">
+          </div>
+          <button onclick="openModal('modal2')" class="mt-1 text-xs bg-deep text-white px-3 py-1.5 rounded-full inline-flex items-center gap-1 hover:bg-[#1c4457]"><i class="fas fa-eye"></i> Overview</button>
+        </div>
+        <!-- 3. Cocks Slate 9 / Fenre 4b Oros -->
+        <div class="product-card hover-scale p-4 flex flex-col items-start bg-white border border-[#efebe7]">
+          <span class="category-tag text-xs mb-2"><i class="far fa-clock mr-1"></i> Category</span>
+          <h3 class="font-bold text-deep text-sm">Cocks Slate 9</h3>
+          <p class="text-xs text-[#6d7a80] mb-3">Fenre 4b Oros</p>
+          <div class="w-full h-24 bg-[#f1efe9] rounded-lg mb-3 overflow-hidden">
+            <img src="https://picsum.photos/id/42/160/120" alt="Slate 9" class="object-cover w-full h-full hover:scale-110 transition">
+          </div>
+          <button onclick="openModal('modal3')" class="mt-1 text-xs bg-deep text-white px-3 py-1.5 rounded-full inline-flex items-center gap-1 hover:bg-[#1c4457]"><i class="fas fa-eye"></i> Overview</button>
+        </div>
+        <!-- 4. Teetle SICOB / Cucks Slate 9 (variant) -->
+        <div class="product-card hover-scale p-4 flex flex-col items-start bg-white border border-[#efebe7]">
+          <span class="category-tag text-xs mb-2"><i class="fas fa-tag mr-1"></i> Category</span>
+          <h3 class="font-bold text-deep text-sm">Teetle SICOB</h3>
+          <p class="text-xs text-[#6d7a80] mb-3">Cucks Slate 9</p>
+          <div class="w-full h-24 bg-[#f1efe9] rounded-lg mb-3 overflow-hidden">
+            <img src="https://picsum.photos/id/104/160/120" alt="Teetle SICOB" class="object-cover w-full h-full hover:scale-110 transition">
+          </div>
+          <button onclick="openModal('modal4')" class="mt-1 text-xs bg-deep text-white px-3 py-1.5 rounded-full inline-flex items-center gap-1 hover:bg-[#1c4457]"><i class="fas fa-eye"></i> Overview</button>
+        </div>
+        <!-- 5. Snick Open -->
+        <div class="product-card hover-scale p-4 flex flex-col items-start bg-white border border-[#efebe7]">
+          <span class="category-tag text-xs mb-2"><i class="fas fa-bolt mr-1"></i> Category</span>
+          <h3 class="font-bold text-deep text-sm">Snick Open</h3>
+          <p class="text-xs text-[#6d7a80] mb-3">Open • air</p>
+          <div class="w-full h-24 bg-[#f1efe9] rounded-lg mb-3 overflow-hidden">
+            <img src="https://picsum.photos/id/96/160/120" alt="Snick open prototype" class="object-cover w-full h-full hover:scale-110 transition">
+          </div>
+          <button onclick="openModal('modal5')" class="mt-1 text-xs bg-deep text-white px-3 py-1.5 rounded-full inline-flex items-center gap-1 hover:bg-[#1c4457]"><i class="fas fa-eye"></i> Overview</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CATEGORIES section (bottom) ========== -->
+    <div class="mt-20 border-t border-[#e2dad3] pt-10">
+      <h2 class="text-2xl font-bold text-deep mb-8 flex items-center"><i class="fas fa-th-large mr-3 text-coral"></i> Categories</h2>
+      
+      <!-- three row categories exactly like image: Botoiuts / Boots / Adtuc Care Simp / Sales Opwe -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+        <!-- Category 1: Botoiuts · Potestataga · Gart lipse -->
+        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-[#e6dfd9] hover-scale transition-all">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold text-coral uppercase tracking-wider">Category</span>
+            <i class="fas fa-robot text-2xl text-[#ad9e93]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-deep mt-2">Botoiuts</h3>
+          <p class="text-sm text-[#6f7b82]">Potestataga</p>
+          <p class="text-xs text-[#b0a69e] mt-1 italic">Gart lipse · v2.1</p>
+          <div class="mt-4 flex -space-x-2 overflow-hidden">
+            <img src="https://picsum.photos/id/101/80/80?grayscale" class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover">
+            <img src="https://picsum.photos/id/102/80/80" class="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover">
+          </div>
+          <button onclick="openModal('modal_bot1')" class="mt-5 text-sm font-medium text-deep flex items-center gap-1 hover:text-coral transition"><i class="fas fa-arrow-right"></i> view products</button>
+        </div>
+        <!-- Category 2: Boots · Un Cart 9 · Petctrized 9 600 -->
+        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-[#e6dfd9] hover-scale">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold text-coral uppercase tracking-wider">Category</span>
+            <i class="fas fa-shoe-prints text-2xl text-[#ad9e93]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-deep mt-2">Boots</h3>
+          <p class="text-sm text-[#6f7b82]">Un Cart 9</p>
+          <p class="text-xs text-[#b0a69e] mt-1">Petctrized 9 600</p>
+          <div class="mt-4 flex gap-2 items-center">
+            <img src="https://picsum.photos/id/21/100/80" class="h-12 w-16 object-cover rounded-lg shadow-sm">
+            <span class="text-xs bg-soft px-2 py-1 rounded-full">limited</span>
+          </div>
+          <button onclick="openModal('modal_boot1')" class="mt-5 text-sm font-medium text-deep flex items-center gap-1 hover:text-coral"><i class="fas fa-arrow-right"></i> view boots</button>
+        </div>
+        <!-- Category 3: Adtuc Care Simp · Dertxoeid Sit -->
+        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-[#e6dfd9] hover-scale">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold text-coral uppercase tracking-wider">Category</span>
+            <i class="fas fa-leaf text-2xl text-[#ad9e93]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-deep mt-2">Adtuc Care Simp</h3>
+          <p class="text-sm text-[#6f7b82]">Dertxoeid Sit</p>
+          <p class="text-xs text-[#b0a69e] mt-1">wellness series</p>
+          <div class="mt-4">
+            <img src="https://picsum.photos/id/134/200/100" class="rounded-lg object-cover h-16 w-full">
+          </div>
+          <button onclick="openModal('modal_care1')" class="mt-5 text-sm font-medium text-deep flex items-center gap-1 hover:text-coral"><i class="fas fa-arrow-right"></i> see care</button>
+        </div>
+        <!-- Category 4: Sales Opwe -->
+        <div class="bg-white/70 backdrop-blur-sm p-6 rounded-2xl border border-[#e6dfd9] hover-scale">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold text-coral uppercase tracking-wider">Category</span>
+            <i class="fas fa-chart-line text-2xl text-[#ad9e93]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-deep mt-2">Sales Opwe</h3>
+          <p class="text-sm text-[#6f7b82]">opulence module</p>
+          <p class="text-xs text-[#b0a69e] mt-1">B2B 4.0</p>
+          <div class="mt-4 flex items-center justify-between">
+            <img src="https://picsum.photos/id/144/90/70" class="rounded-md w-16 h-12 object-cover">
+            <i class="fas fa-arrow-up-right-dots text-coral text-xl"></i>
+          </div>
+          <button onclick="openModal('modal_sales1')" class="mt-5 text-sm font-medium text-deep flex items-center gap-1 hover:text-coral"><i class="fas fa-arrow-right"></i> overview</button>
+        </div>
+      </div>
+    </div>
+  
+  <!-- tiny footer – "Pramines Fobld" spirit -->
+  <div class="max-w-7xl mx-auto px-6 pb-8 pt-16 text-xs text-[#a29489] flex justify-between">
+    <span>© SYCUMATOR · Pramines Fobld</span>
+    <span class="italic">Taxitpol enerynd. fo tatiny hcit</span>
+  </div>
+  </div>
+
+  <!-- ========== MODAL OVERLAYS – product overviews (one per product, all with images) ========== -->
+  <!-- Each modal includes at least one photo and detailed overview -->
+
+  <div id="modal1" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden transition-all" onclick="closeModalOnBackdrop(event, 'modal1')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral">
+      <div class="flex justify-between items-start">
+        <h3 class="text-xl font-bold text-deep">XII xka Name · Togliire 4 bm</h3>
+        <button onclick="closeModal('modal1')" class="text-gray-400 hover:text-coral text-2xl">&times;</button>
+      </div>
+      <div class="grid grid-cols-2 gap-3 mt-4">
+        <img src="https://picsum.photos/id/20/400/300" class="rounded-2xl w-full h-32 object-cover border">
+        <img src="https://picsum.photos/id/21/400/300?grayscale" class="rounded-2xl w-full h-32 object-cover">
+      </div>
+      <p class="text-sm mt-4 text-[#3e525c]"><span class="font-bold">Overview:</span> Next‑gen modular actuator. Togliire 4 bm delivers 33 teraflops of pramines fobld intelligence. Carbon weave, 48h battery.</p>
+      <div class="mt-5 flex gap-2"><span class="category-tag">innovation 33</span><span class="category-tag">haptic core</span></div>
+    </div>
+  </div>
+  <!-- modal2 Molmer -->
+  <div id="modal2" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal2')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral">
+      <div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Molmer · Notturistary</h3><button onclick="closeModal('modal2')" class="text-gray-400 hover:text-coral text-2xl">&times;</button></div>
+      <img src="https://picsum.photos/id/36/500/250" class="w-full h-40 object-cover rounded-2xl mt-3">
+      <p class="text-sm mt-4"><span class="font-bold">Notturistary</span> — immersive optical array. 8K micro‑led, 240Hz, Dolby Pramines. Includes nightweave case.</p>
+      <div class="mt-3 flex"><img src="https://picsum.photos/id/40/80/80" class="h-12 w-12 rounded-full mr-2"><span class="text-xs self-end">Molmer®</span></div>
+    </div>
+  </div>
+  <!-- modal3 Cocks Slate 9 -->
+  <div id="modal3" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal3')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral">
+      <div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Cocks Slate 9</h3><button onclick="closeModal('modal3')" class="text-gray-400 hover:text-coral">&times;</button></div>
+      <div class="flex gap-2 mt-2"><img src="https://picsum.photos/id/42/300/200" class="w-1/2 rounded-xl"><img src="https://picsum.photos/id/43/300/200" class="w-1/2 rounded-xl"></div>
+      <p class="text-sm mt-3"><span class="font-bold">Fenre 4b Oros</span> edition. Titanium chassis, Fobld OS 2.0. 5G mesh, 200MP variable lens. Overview: pro-grade field computer.</p>
+    </div>
+  </div>
+  <!-- modal4 Teetle SICOB / Cucks Slate 9 -->
+  <div id="modal4" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal4')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral">
+      <div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Teetle SICOB</h3><button onclick="closeModal('modal4')" class="text-gray-400 hover:text-coral">&times;</button></div>
+      <img src="https://picsum.photos/id/104/500/250" class="w-full h-36 object-cover rounded-xl mt-3">
+      <p class="text-sm mt-2"><span class="font-bold">Cucks Slate 9 · Rugged</span> – SICOB encryption chip, mil‑spec durable. 2TB storage. Overview includes graphene heat spreader.</p>
+    </div>
+  </div>
+  <!-- modal5 Snick Open -->
+  <div id="modal5" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal5')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral">
+      <div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Snick Open</h3><button onclick="closeModal('modal5')" class="text-gray-400 hover:text-coral">&times;</button></div>
+      <div class="grid grid-cols-2 gap-2 mt-3"><img src="https://picsum.photos/id/96/300/200" class="rounded-xl"><img src="https://picsum.photos/id/95/300/200" class="rounded-xl"></div>
+      <p class="text-sm mt-3"><span class="font-bold">Open‑air e‑foil</span> · modular hydrofoil. 40km range, smart assist. Overview: Splore Lëmme edition.</p>
+    </div>
+  </div>
+
+  <!-- additional modals for categories products (Botoiuts, Boots, Adtuc, Sales) each have min 1 photo -->
+  <div id="modal_bot1" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal_bot1')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral"><div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Botoiuts · Potestataga</h3><button onclick="closeModal('modal_bot1')" class="text-gray-400 hover:text-coral">&times;</button></div>
+    <img src="https://picsum.photos/id/101/500/300" class="w-full h-40 object-cover rounded-2xl mt-2"><p class="text-sm mt-3"><span class="font-bold">Gart lipse v2.1</span> – autonomous swarm nodes. Each unit 33g, mesh AI. Overview: 6 units set with charging hub.</p></div>
+  </div>
+  <div id="modal_boot1" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal_boot1')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral"><div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Boots · Un Cart 9</h3><button onclick="closeModal('modal_boot1')" class="text-gray-400 hover:text-coral">&times;</button></div>
+    <img src="https://picsum.photos/id/21/500/300" class="w-full h-36 object-cover rounded-xl"><p class="text-sm mt-3"><span class="font-bold">Petctrized 9 600</span> – graphene‑infused sole, smart lacing. Terrain adaptation. Overview: limited edition orange.</p></div>
+  </div>
+  <div id="modal_care1" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal_care1')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral"><div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Adtuc Care Simp</h3><button onclick="closeModal('modal_care1')" class="text-gray-400 hover:text-coral">&times;</button></div>
+    <img src="https://picsum.photos/id/134/500/300" class="w-full h-40 object-cover rounded-xl"><p class="text-sm mt-3"><span class="font-bold">Dertxoeid Sit</span> – bioregenerative skin patch. Continuous glucose & cortisol monitoring. Overview: 3-pack.</p></div>
+  </div>
+  <div id="modal_sales1" class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 hidden" onclick="closeModalOnBackdrop(event, 'modal_sales1')">
+    <div class="bg-white max-w-md w-full mx-4 rounded-3xl p-6 shadow-2xl modal-fade border-t-4 border-coral"><div class="flex justify-between"><h3 class="text-xl font-bold text-deep">Sales Opwe</h3><button onclick="closeModal('modal_sales1')" class="text-gray-400 hover:text-coral">&times;</button></div>
+    <img src="https://picsum.photos/id/144/500/300" class="w-full h-36 object-cover rounded-xl"><p class="text-sm mt-3"><span class="font-bold">opulence module</span> – AI forecasting for pramines fobld. Real‑time stock, B2B 4.0. Overview: dashboard + mobile.</p></div>
+  </div>
+
+  <script>
+    // modal helpers
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+    function closeModalOnBackdrop(event, id) {
+      if (event.target.classList.contains('fixed')) {
+        closeModal(id);
+      }
+    }
+    // close on escape key
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const openModals = document.querySelectorAll('.fixed.inset-0:not(.hidden)');
+        openModals.forEach(modal => modal.classList.add('hidden'));
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
